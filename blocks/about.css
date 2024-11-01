@@ -1,0 +1,28 @@
+@media screen and (max-width: 480px) {
+  .profile {
+    background-color: black;
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile__add-button {
+    margin: 0;
+    width: 100%;
+  }
+
+  .footer__copyright {
+    width: 100%;
+    text-align: center;
+  }
+}
