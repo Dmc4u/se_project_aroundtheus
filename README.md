@@ -1,23 +1,32 @@
-# Project 3: Around The U.S.
+# Project 3, Title: Around The U.S.
 
-### Overview
+Profile Title: Jacques Cousteau
+Description: Explorer
 
-- Intro
-- Figma
-- Images
+This is my third project in the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief in Figma. Responsive design for both desktop and mobile views using @media queries.
 
-**Intro**
+## Project Features.
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+1. Semantic HTML5 for better accessibility and readability.
+2. Flexbox layout for flexible and responsive design.
+3. Grid layout for creating structured, two-dimensional layouts.
+4. Flat BEM File Structure to keep CSS classes organized and maintainable.
+5. Responsive Design using @media queries to optimize for different screen sizes.
 
-**Figma**
+### Technologies Used.
 
-- [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
+HTML
+CSS
 
-**Images**
+#### Future Improvements.
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+The next step for this project will be to enhance its interactivity by adding JavaScript. Planned features include:
 
-Visit https://dmc4u.github.io/se_project_aroundtheus/
+- Interactive buttons: Adding dynamic interactions such as hover effects and clickable elements.
+- User interactivity: Enabling users to add, edit, and like content dynamically.
 
-Good luck and have fun!
+##### Visit https://dmc4u.github.io/se_project_aroundtheus/
+
+###### https://drive.google.com/file/d/10uBh702kW4cWmur353YrgkRuZDrE_Nd4/view?usp=sharing
+
+Stay tuned!

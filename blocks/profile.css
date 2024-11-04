@@ -44,6 +44,16 @@
   grid-area: button;
 }
 
+.profile__edit-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.profile__edit-button:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
 .profile__add-button {
   background-image: url(../Images/Add\ Button.svg);
   background-color: transparent;
@@ -53,6 +63,16 @@
   height: 50px;
   margin-left: auto;
   border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.profile__add-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.profile__add-button:disabled {
+  cursor: not-allowed;
+  opacity: 1;
 }
 
 .profile__image {

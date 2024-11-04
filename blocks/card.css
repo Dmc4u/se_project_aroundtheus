@@ -49,9 +49,20 @@
 
 .card__like-button {
   background-image: url(../Images/like\ button.svg);
-  background-color: transparent;
+  cursor: pointer;
+  background: transparent;
   background-position: center;
   background-repeat: no-repeat;
   width: 21px;
   height: 18px;
+}
+
+.card__like-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.card__like-button:disabled {
+  cursor: not-allowed;
+  opacity: 1;
 }
