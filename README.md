@@ -3,7 +3,7 @@
 Profile Title: Jacques Cousteau
 Description: Explorer
 
-This is my third project in the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief in Figma. Responsive design for both desktop and mobile views using @media queries.
+This is my third project in the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief on Figma. Responsive design for both desktop and mobile views using @media queries.
 
 ## Project Features.
 

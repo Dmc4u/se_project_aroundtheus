@@ -8,7 +8,7 @@
   grid-template-areas:
     "title button"
     "description description";
-  grid-template-columns: minmax(auto, 373%), auto;
+  grid-template-columns: minmax(auto, 373px), auto;
   gap: 9px 17px;
 }
 
@@ -31,7 +31,7 @@
   text-align: left;
   color: rgba(255, 255, 255, 1);
   grid-area: description;
-  margin: 0;
+  margin-left: 0;
 }
 
 .profile__edit-button {
@@ -44,7 +44,6 @@
   grid-area: button;
 }
 
-<<<<<<< HEAD
 .profile__edit-button:hover {
   cursor: pointer;
   opacity: 0.5;
@@ -55,8 +54,6 @@
   opacity: 1;
 }
 
-=======
->>>>>>> d9a835374f5bb3284cb5570fd2f39df85b496609
 .profile__add-button {
   background-image: url(../Images/Add\ Button.svg);
   background-color: transparent;
@@ -68,7 +65,6 @@
   border: 2px solid rgba(255, 255, 255, 1);
 }
 
-<<<<<<< HEAD
 .profile__add-button:hover {
   cursor: pointer;
   opacity: 0.5;
@@ -79,8 +75,6 @@
   opacity: 1;
 }
 
-=======
->>>>>>> d9a835374f5bb3284cb5570fd2f39df85b496609
 .profile__image {
   height: 120px;
   width: 120px;
