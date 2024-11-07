@@ -1,0 +1,19 @@
+.cards {
+  font-family: "Inter", Arial, sans-serif;
+  margin-top: 51px;
+  border-radius: 10px;
+}
+
+.cards__list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  gap: 20px 17px;
+  padding: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    margin: 36px auto 0;
+  }
+}
