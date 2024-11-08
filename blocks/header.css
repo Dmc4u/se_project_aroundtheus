@@ -1,6 +1,6 @@
 .header {
   min-height: 74px;
-
+  margin: 0 auto;
   padding: 0;
   border-bottom: solid 1px rgb(84 84 84 / 0.7);
 }
@@ -8,15 +8,19 @@
 .header__image {
   width: 173px;
   height: 33px;
+  margin: 45px auto 0;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 320px) {
   .header {
+    max-width: 320px;
+    width: 100%;
     margin: 28px 27px 0;
   }
 
   .header__image {
-    min-width: 126px;
-    width: 100%;
+    width: 126px;
+    height: 24px;
+    margin: 0;
   }
 }
