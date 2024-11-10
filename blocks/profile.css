@@ -101,6 +101,58 @@
   margin-right: 24px;
 }
 
+@media screen and (max-width: 460px) {
+  .profile {
+    max-width: 282px;
+    width: 100%;
+    min-height: 286px;
+    background-color: black;
+    flex-direction: column;
+    margin: 42px auto 0;
+  }
+
+  .profile__image {
+    width: 120px;
+    height: 120px;
+    margin-right: 0;
+  }
+
+  .profile__info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 30px 19px 0;
+  }
+
+  .profile__title {
+    max-width: 220px;
+    line-height: 17px;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .profile__description {
+    max-width: 282px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .profile__add-button {
+    margin: 36px auto 0;
+    max-width: 282px;
+
+    height: 50px;
+    width: 100%;
+  }
+
+  .profile__edit-button {
+    height: 18px;
+    width: 18px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .profile {
     max-width: 282px;
