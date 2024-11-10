@@ -10,21 +10,6 @@
   height: 33px;
 }
 
-@media screen and (max-width: 460px) {
-  .header {
-    max-width: 460px;
-    width: 100%;
-    min-height: 56px;
-    margin: 28px 0 0;
-  }
-
-  .header__image {
-    width: 126px;
-    height: 24px;
-    margin-left: 34px;
-  }
-}
-
 @media screen and (max-width: 320px) {
   .header {
     max-width: 320px;
