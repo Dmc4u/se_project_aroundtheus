@@ -101,14 +101,14 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 568px) {
   .profile {
     max-width: 282px;
     width: 100%;
     min-height: 286px;
     background-color: black;
     flex-direction: column;
-    margin: 42px 19px 0;
+    margin: 42px auto 0;
   }
 
   .profile__image {

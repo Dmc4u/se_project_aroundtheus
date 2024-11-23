@@ -10,7 +10,7 @@
   height: 33px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 568px) {
   .header {
     max-width: 320px;
     width: 100%;

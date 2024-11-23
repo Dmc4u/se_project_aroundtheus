@@ -14,7 +14,7 @@
   margin: 51px auto 67px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 568px) {
   .cards {
     margin: 0 auto;
   }
