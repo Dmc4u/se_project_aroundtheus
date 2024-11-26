@@ -25,9 +25,8 @@ const initialCards = [
   },
 ];
 
-/****************************************/
-/************ Elements ***********/
-/****************************************/
+/******************* Elements************************ ***********/
+
 const profileEditButton = document.querySelector("#profile__edit-button");
 const profileCloseButton = document.querySelector("#modal__close");
 const profileEditModal = document.querySelector("#profile__edit-modal");
@@ -38,17 +37,28 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const cardListEl = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
 
-/****************************************/
-/*************functions********************/
-/****************************************/
+/***functions*****/
+
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
 
-/****************************************/
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardData.link;
+  cardTitleEl.textContent = cardData.name;
+  return cardElement;
+}
+
 /************ Event Handlers ***********/
-/****************************************/
+
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
@@ -56,9 +66,8 @@ function handleProfileEditSubmit(e) {
   closePopup();
 }
 
-/****************************************/
 /************ Event Listeners ***********/
-/****************************************/
+
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -66,4 +75,16 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileCloseButton.addEventListener("click", closePopup);
+
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
+/*First method
+ for (let i = 0; i < initialCards.length; i++) {
+  console.log(initialCards[i]);
+}*/
+
+// Second metthod
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
+});
