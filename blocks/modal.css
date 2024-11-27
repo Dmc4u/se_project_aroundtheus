@@ -1,5 +1,5 @@
 .modal {
-  background-color: rgba(0 0 0 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
   position: fixed;
   top: 0;
@@ -7,15 +7,15 @@
   bottom: 0;
   right: 0;
   z-index: 1;
-}
-
-.modal_opened {
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.modal__container {
+.modal_opened {
+  display: flex;
+}
+
+.modal__content {
   max-width: 430px;
   width: 100%;
   min-height: 323px;
@@ -32,7 +32,7 @@
   position: absolute;
   top: -39px;
   right: -37px;
-  background-image: url(../Images/Close\ Icon.svg);
+  background-image: url(../Images/Close/Icon.svg);
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: contain;
