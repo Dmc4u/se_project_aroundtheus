@@ -54,7 +54,7 @@
         <p class="footer__copyright">&#169; 2022 Around the U.S</p>
       </footer>
     </div>
-
+    <!-- Edit Modal -->
     <div class="modal" id="profile__edit-modal">
       <div class="modal__content">
         <button type="button" class="modal__close" id="modal__close"></button>
@@ -62,14 +62,14 @@
         <form class="modal__form" id="modal__form">
           <input
             type="text"
-            class="modal__input"
-            name="title"
-            id="profile-title-input"
+            class="modal__input modal__input_type_name"
+            name="name"
+            id="profile-name-input"
             placeholder="name"
           />
           <input
             type="text"
-            class="modal__input"
+            class="modal__input modal__input_type_descrition"
             name="description"
             id="profile-description-input"
             placeholder="description"
@@ -79,9 +79,47 @@
       </div>
     </div>
 
+    <!-- Add card Modal -->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__content">
+        <button type="button" class="modal__close" id="modal__close"></button>
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form" id="add-card-form">
+          <input
+            type="text"
+            class="modal__input modal__input_type_title"
+            name="title"
+            id="profile-title-input"
+            placeholder="title"
+          />
+          <input
+            type="text"
+            class="modal__input modal__input_type_url"
+            name="url"
+            id="profile-description-input"
+            placeholder="image url"
+          />
+          <button type="submit" class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Card Modal -->
+    <div class="modal modal_type_picture" id="picture-modal">
+      <div class="modal__content-picture">
+        <button
+          type="button"
+          class="modal__close modal__close_type_picture"
+        ></button>
+        <img src="" alt="Full-size view" class="modal__image" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card" card-container>
         <img src="" alt="" class="card__image" />
+        <button class="card__delete-button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button type="button" class="card__like-button"></button>
