@@ -3,20 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="shortcut icon" href="favicon.ico" />
-
     <meta name="description" content="Around the U.S" />
-
-    <link rel="stylesheet" href="./pages/index.css" />
-
     <meta name="author" content="Moses A Aina" />
     <meta
       name="keywords"
-      content="Yosemite0 Valley, lake-louise, bald Mountain, latemar, vanoise National Park and lago di braies"
+      content="Yosemite Valley, Lake Louise, Bald Mountain, Latemar, Vanoise National Park, Lago di Braies"
     />
     <link rel="stylesheet" href="./pages/index.css" />
-
     <title>Around The U.S</title>
   </head>
   <body class="page">
@@ -28,6 +22,7 @@
           class="header__image"
         />
       </header>
+
       <main class="content">
         <section class="profile page__section">
           <img
@@ -36,88 +31,102 @@
             class="profile__image"
           />
           <div class="profile__info">
-            <h1 class="profile__title">jacques Cousteau</h1>
+            <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               type="button"
               class="profile__edit-button"
-              id="profile__edit-button"
+              id="edit-profile-button"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button type="button" class="profile__add-button"></button>
+          <button
+            type="button"
+            class="profile__add-button"
+            id="add-card-button"
+          ></button>
         </section>
+
         <section class="cards page__section">
           <ul class="cards__list"></ul>
         </section>
       </main>
+
       <footer class="footer page__section">
-        <p class="footer__copyright">&#169; 2022 Around the U.S</p>
+        <p class="footer__copyright">&copy; 2022 Around the U.S</p>
       </footer>
     </div>
-    <!-- Edit Modal -->
-    <div class="modal" id="profile__edit-modal">
+
+    <!-- Modals -->
+    <div class="modal" id="edit-profile-modal">
       <div class="modal__content">
-        <button type="button" class="modal__close" id="modal__close"></button>
+        <button
+          type="button"
+          class="modal__close"
+          id="close-edit-profile-modal"
+        ></button>
         <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form" id="modal__form">
+        <form class="modal__form" id="edit-profile-form">
           <input
             type="text"
             class="modal__input modal__input_type_name"
             name="name"
             id="profile-name-input"
-            placeholder="name"
+            placeholder="Name"
           />
           <input
             type="text"
-            class="modal__input modal__input_type_descrition"
+            class="modal__input modal__input_type_description"
             name="description"
             id="profile-description-input"
-            placeholder="description"
+            placeholder="Description"
           />
           <button type="submit" class="modal__button">Save</button>
         </form>
       </div>
     </div>
 
-    <!-- Add card Modal -->
     <div class="modal" id="add-card-modal">
       <div class="modal__content">
-        <button type="button" class="modal__close" id="modal__close"></button>
+        <button
+          type="button"
+          class="modal__close"
+          id="close-add-card-modal"
+        ></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form" id="add-card-form">
           <input
             type="text"
             class="modal__input modal__input_type_title"
             name="title"
-            id="profile-title-input"
-            placeholder="title"
+            id="card-title-input"
+            placeholder="Title"
           />
           <input
-            type="text"
+            type="url"
             class="modal__input modal__input_type_url"
             name="url"
-            id="profile-description-input"
-            placeholder="image url"
+            id="card-url-input"
+            placeholder="Image URL"
           />
           <button type="submit" class="modal__button">Save</button>
         </form>
       </div>
     </div>
 
-    <!-- Card Modal -->
     <div class="modal modal_type_picture" id="picture-modal">
       <div class="modal__content-picture">
         <button
           type="button"
           class="modal__close modal__close_type_picture"
+          id="close-picture-modal"
         ></button>
-        <img src="" alt="Full-size view" class="modal__image" />
+        <img src="about:blank" alt="Full-size view" class="modal__image" />
         <p class="modal__caption"></p>
       </div>
     </div>
 
     <template id="card-template">
-      <li class="card" card-container>
+      <li class="card">
         <img src="" alt="" class="card__image" />
         <button class="card__delete-button"></button>
         <div class="card__description">
