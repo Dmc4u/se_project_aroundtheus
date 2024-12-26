@@ -56,72 +56,91 @@
       </footer>
     </div>
 
-    <!-- Modals -->
-    <div class="modal" id="edit-profile-modal">
-      <div class="modal__content">
+    <!-- Popups -->
+    <div class="popup" id="edit-profile-popup">
+      <div class="popup__content">
         <button
           type="button"
-          class="modal__close"
-          id="close-edit-profile-modal"
+          class="popup__close"
+          id="close-edit-profile-popup"
         ></button>
-        <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form" id="edit-profile-form">
+        <p class="popup__heading">Edit Profile</p>
+        <form class="popup__form" id="edit-profile-form" novalidate>
           <input
             type="text"
-            class="modal__input modal__input_type_name"
+            class="popup__input popup__input_type_name"
             name="name"
             id="profile-name-input"
             placeholder="Name"
+            minlength="2"
+            maxlength="40"
+            required
           />
+          <span class="popup__error" id="profile-name-input-error"></span>
+          <!-- Error Message -->
           <input
             type="text"
-            class="modal__input modal__input_type_description"
+            class="popup__input popup__input_type_description"
             name="description"
             id="profile-description-input"
             placeholder="Description"
+            required
           />
-          <button type="submit" class="modal__button">Save</button>
+          <span
+            class="popup__error"
+            id="profile-description-input-error"
+          ></span>
+          <!-- Error Message -->
+          <button type="submit" class="popup__button">Save</button>
         </form>
       </div>
     </div>
 
-    <div class="modal" id="add-card-modal">
-      <div class="modal__content">
+    <div class="popup" id="add-card-popup">
+      <div class="popup__content">
         <button
           type="button"
-          class="modal__close"
-          id="close-add-card-modal"
+          class="popup__close"
+          id="close-add-card-popup"
         ></button>
-        <p class="modal__heading">New Place</p>
-        <form class="modal__form" id="add-card-form">
+        <p class="popup__heading">New Place</p>
+        <form class="popup__form" id="add-card-form" novalidate>
           <input
             type="text"
-            class="modal__input modal__input_type_title"
+            class="popup__input popup__input_type_title"
             name="title"
             id="card-title-input"
             placeholder="Title"
+            minlength="2"
+            maxlength="200"
+            required
           />
+          <span class="popup__error" id="card-title-input-error"></span>
+          <!-- Error Message -->
           <input
             type="url"
-            class="modal__input modal__input_type_url"
+            class="popup__input popup__input_type_url"
             name="url"
             id="card-url-input"
             placeholder="Image URL"
+            required
           />
-          <button type="submit" class="modal__button">Save</button>
+          <span class="popup__error" id="card-url-input-error"></span>
+          <!-- Error Message -->
+          <button type="submit" class="popup__button">Save</button>
         </form>
       </div>
     </div>
 
-    <div class="modal modal_type_picture" id="picture-modal">
-      <div class="modal__content-picture">
+    <div class="popup popup_type_picture" id="picture-popup">
+      <div class="popup__content-picture">
         <button
           type="button"
-          class="modal__close modal__close_type_picture"
-          id="close-picture-modal"
+          class="popup__close popup__close_type_picture"
+          id="close-picture-popup"
         ></button>
-        <img src="about:blank" alt="Full-size view" class="modal__image" />
-        <p class="modal__caption"></p>
+        <img src="placeholder.jpg" alt="Full-size view" class="popup__image" />
+        <p class="popup__caption"></p>
       </div>
     </div>
 
@@ -136,6 +155,7 @@
       </li>
     </template>
 
+    <script src="./scripts/validation.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
