@@ -12,6 +12,7 @@
   opacity: 0;
   transition: visibility 0.3s, opacity 0.3s linear;
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .popup_opened {
@@ -40,6 +41,14 @@
   border-bottom: 1px solid green;
 }
 
+.popup__button:invalid {
+  background-color: #ffffff;
+}
+
+.button_invalid {
+  background-color: white;
+}
+
 /* Scale effect when opened */
 .popup_opened .popup__content {
   transform: scale(1);
@@ -47,6 +56,7 @@
 
 .popup__button_disabled {
   background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.5);
   cursor: not-allowed;
 }
 
@@ -119,7 +129,7 @@
 }
 
 .popup_type_picture {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup_type_picture.modal_opened {
