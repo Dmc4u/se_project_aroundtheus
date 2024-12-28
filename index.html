@@ -66,31 +66,35 @@
         ></button>
         <p class="popup__heading">Edit Profile</p>
         <form class="popup__form" id="edit-profile-form" novalidate>
-          <input
-            type="text"
-            class="popup__input popup__input_type_name"
-            name="name"
-            id="profile-name-input"
-            placeholder="Name"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="popup__error" id="profile-name-input-error"></span>
-          <!-- Error Message -->
-          <input
-            type="text"
-            class="popup__input popup__input_type_description"
-            name="description"
-            id="profile-description-input"
-            placeholder="Description"
-            required
-          />
-          <span
-            class="popup__error"
-            id="profile-description-input-error"
-          ></span>
-          <!-- Error Message -->
+          <label class="popup__label">
+            <input
+              type="text"
+              class="popup__input popup__input_type_name"
+              name="name"
+              id="profile-name-input"
+              placeholder="Name"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="popup__error" id="profile-name-input-error"></span>
+            <!-- Error Message -->
+          </label>
+          <label class="popup__label">
+            <input
+              type="text"
+              class="popup__input popup__input_type_description"
+              name="description"
+              id="profile-description-input"
+              placeholder="Description"
+              required
+            />
+            <span
+              class="popup__error"
+              id="profile-description-input-error"
+            ></span>
+            <!-- Error Message -->
+          </label>
           <button
             type="submit"
             class="popup__button button_invalid popup__button_disabled"
@@ -110,28 +114,32 @@
         ></button>
         <p class="popup__heading">New Place</p>
         <form class="popup__form" id="add-card-form" novalidate>
-          <input
-            type="text"
-            class="popup__input popup__input_type_title"
-            name="title"
-            id="card-title-input"
-            placeholder="Title"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span class="popup__error" id="card-title-input-error"></span>
-          <!-- Error Message -->
-          <input
-            type="url"
-            class="popup__input popup__input_type_url"
-            name="url"
-            id="card-url-input"
-            placeholder="Image URL"
-            required
-          />
-          <span class="popup__error" id="card-url-input-error"></span>
-          <!-- Error Message -->
+          <label class="popup__label">
+            <input
+              type="text"
+              class="popup__input popup__input_type_title"
+              name="title"
+              id="card-title-input"
+              placeholder="Title"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="popup__error" id="card-title-input-error"></span>
+            <!-- Error Message -->
+          </label>
+          <label class="popup__label">
+            <input
+              type="url"
+              class="popup__input popup__input_type_url"
+              name="url"
+              id="card-url-input"
+              placeholder="Image URL"
+              required
+            />
+            <span class="popup__error" id="card-url-input-error"></span>
+            <!-- Error Message -->
+          </label>
           <button
             type="submit"
             class="popup__button button_invalid popup__button_disabled"

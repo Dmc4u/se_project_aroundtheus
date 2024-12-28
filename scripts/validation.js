@@ -32,11 +32,9 @@ function toggleButtonState(inputList, buttonElement, config) {
 
   if (hasInvalidInput) {
     buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.style.backgroundColor = "white";
     buttonElement.disabled = true;
   } else {
     buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.style.backgroundColor = "black";
     buttonElement.disabled = false;
   }
 }
