@@ -1,3 +1,7 @@
+// Import Classes
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
 // Initial Card Data
 const initialCards = [
   {
@@ -26,10 +30,19 @@ const initialCards = [
   },
 ];
 
+// Settings for Form Validation
+const settings = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+const formValidators = {};
+
 // DOM Selectors
 const popups = document.querySelectorAll(".popup");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
 const cardListEl = document.querySelector(".cards__list");
 const addCardPopup = document.querySelector("#add-card-popup");
 const addCardForm = document.querySelector("#add-card-form");
@@ -75,43 +88,18 @@ popups.forEach((popup) => {
   popup.addEventListener("mousedown", handleOverlayClick);
 });
 
-function createCard({ name, link }) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
-
-  // Set content
-  cardImageEl.src = link;
-  cardImageEl.alt = name;
-  cardTitleEl.textContent = name;
-
-  // Add event listeners
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImageEl.addEventListener("click", () => {
-    openPicturePopup(link, name);
-  });
-
-  return cardElement;
-}
-
-function renderCard(cardData) {
-  cardListEl.prepend(createCard(cardData));
-}
-
-function openPicturePopup(imageSrc, imageAlt) {
-  picturePopupImage.src = imageSrc;
-  picturePopupImage.alt = imageAlt;
-  picturePopupCaption.textContent = imageAlt;
+// Handle Card Image Click
+const handleImageClick = ({ name, link }) => {
+  picturePopupImage.src = link;
+  picturePopupImage.alt = name;
+  picturePopupCaption.textContent = name;
   openPopup(picturePopup);
+};
+
+// Render Card
+function renderCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  cardListEl.prepend(card.generateCard());
 }
 
 // Event Handlers
@@ -125,7 +113,8 @@ function handleProfileEditSubmit(e) {
 function handleAddCardSubmit(e) {
   e.preventDefault();
   const newCardData = { name: cardTitleInput.value, link: cardUrlInput.value };
-  renderCard(newCardData);
+  const card = new Card(newCardData, "#card-template", handleImageClick);
+  cardListEl.prepend(card.generateCard());
   addCardForm.reset();
   closePopup(addCardPopup);
 }
@@ -158,4 +147,10 @@ picturePopup
   .addEventListener("click", () => closePopup(picturePopup));
 
 // Initial Card Rendering
-initialCards.forEach(renderCard);
+initialCards.forEach((cardData) => {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  cardListEl.append(card.generateCard());
+});
+
+// Initialize Form Validation
+enableValidation(settings);
