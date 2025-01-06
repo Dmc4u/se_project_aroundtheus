@@ -32,6 +32,7 @@ const initialCards = [
 
 // Settings for Form Validation
 const settings = {
+  formSelector: ".popup__form", // Add this to target forms
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_disabled",
