@@ -41,6 +41,16 @@ const settings = {
 
 const formValidators = {};
 
+const enableValidation = (config) => {
+  const forms = Array.from(document.querySelectorAll(config.formSelector));
+  forms.forEach((form) => {
+    const validator = new FormValidator(config, form);
+    const formName = form.getAttribute("name");
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
 // DOM Selectors
 const popups = document.querySelectorAll(".popup");
 const cardListEl = document.querySelector(".cards__list");
