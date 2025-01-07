@@ -95,7 +95,10 @@ const handleOverlayClick = (event) => {
   }
 };
 
-document.addEventListener("mousedown", handleOverlayClick);
+// Add listener to each popup for overlay click
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", handleOverlayClick);
+});
 
 // Handle Card Image Click
 const handleImageClick = ({ name, link }) => {
@@ -130,7 +133,9 @@ const handleAddCardSubmit = (e) => {
   const newCardData = { name: cardTitleInput.value, link: cardUrlInput.value };
   renderCard(newCardData);
   addCardForm.reset();
+  // Reset validation but also disable the submit button
   formValidators[addCardForm.getAttribute("name")].resetValidation();
+  formValidators[addCardForm.getAttribute("name")].disableButton();
   closePopup(addCardPopup);
 };
 
