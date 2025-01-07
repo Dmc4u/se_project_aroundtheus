@@ -10,6 +10,12 @@ export default class FormValidator {
     this._buttonElement = this._formElement.querySelector(
       this._settings.submitButtonSelector
     );
+
+    if (!this._buttonElement || !this._inputList.length) {
+      throw new Error(
+        "FormValidator: Invalid selectors or elements not found."
+      );
+    }
   }
 
   _showInputError(inputElement, errorMessage) {
@@ -58,6 +64,13 @@ export default class FormValidator {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });
+    });
+  }
+
+  resetValidation() {
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
     });
   }
 

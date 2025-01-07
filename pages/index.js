@@ -32,7 +32,7 @@ const initialCards = [
 
 // Settings for Form Validation
 const settings = {
-  formSelector: ".popup__form", // Add this to target forms
+  formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_disabled",
@@ -95,9 +95,7 @@ const handleOverlayClick = (event) => {
   }
 };
 
-popups.forEach((popup) => {
-  popup.addEventListener("mousedown", handleOverlayClick);
-});
+document.addEventListener("mousedown", handleOverlayClick);
 
 // Handle Card Image Click
 const handleImageClick = ({ name, link }) => {
@@ -107,34 +105,46 @@ const handleImageClick = ({ name, link }) => {
   openPopup(picturePopup);
 };
 
-// Render Card
-function renderCard(cardData) {
+// Create Card
+const createCard = (cardData) => {
   const card = new Card(cardData, "#card-template", handleImageClick);
-  cardListEl.prepend(card.generateCard());
-}
+  return card.generateCard();
+};
+
+// Render Card
+const renderCard = (cardData, method = "prepend") => {
+  const cardElement = createCard(cardData);
+  cardListEl[method](cardElement);
+};
 
 // Event Handlers
-function handleProfileEditSubmit(e) {
+const handleProfileEditSubmit = (e) => {
   e.preventDefault();
   profileTitle.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditPopup);
-}
+};
 
-function handleAddCardSubmit(e) {
+const handleAddCardSubmit = (e) => {
   e.preventDefault();
   const newCardData = { name: cardTitleInput.value, link: cardUrlInput.value };
-  const card = new Card(newCardData, "#card-template", handleImageClick);
-  cardListEl.prepend(card.generateCard());
+  renderCard(newCardData);
   addCardForm.reset();
+  formValidators[addCardForm.getAttribute("name")].resetValidation();
   closePopup(addCardPopup);
-}
+};
 
-function populateProfileEditForm() {
+const populateProfileEditForm = () => {
   profileNameInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   openPopup(profileEditPopup);
-}
+};
+
+// Universal Close Button Handler
+document.querySelectorAll(".popup__close").forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopup(popup));
+});
 
 // Event Listeners
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
@@ -142,26 +152,12 @@ document
   .querySelector("#edit-profile-button")
   .addEventListener("click", populateProfileEditForm);
 document
-  .querySelector("#close-edit-profile-popup")
-  .addEventListener("click", () => closePopup(profileEditPopup));
-
-document
   .querySelector(".profile__add-button")
   .addEventListener("click", () => openPopup(addCardPopup));
-document
-  .querySelector("#close-add-card-popup")
-  .addEventListener("click", () => closePopup(addCardPopup));
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
-picturePopup
-  .querySelector(".popup__close_type_picture")
-  .addEventListener("click", () => closePopup(picturePopup));
-
 // Initial Card Rendering
-initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  cardListEl.append(card.generateCard());
-});
+initialCards.forEach((cardData) => renderCard(cardData, "append"));
 
 // Initialize Form Validation
 enableValidation(settings);
