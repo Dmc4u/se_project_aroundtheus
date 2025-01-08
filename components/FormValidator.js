@@ -1,5 +1,3 @@
-// components/FormValidator.js
-
 export default class FormValidator {
   constructor(settings, formElement) {
     this._settings = settings;
@@ -44,31 +42,35 @@ export default class FormValidator {
     }
   }
 
-  _toggleButtonState() {
+  toggleButtonState() {
     const hasInvalidInput = this._inputList.some(
       (inputElement) => !inputElement.validity.valid
     );
     if (hasInvalidInput) {
-      this._buttonElement.disabled = true;
-      this._buttonElement.classList.add(this._settings.inactiveButtonClass);
+      this.disableButton();
     } else {
       this._buttonElement.disabled = false;
       this._buttonElement.classList.remove(this._settings.inactiveButtonClass);
     }
   }
 
+  disableButton() {
+    this._buttonElement.disabled = true;
+    this._buttonElement.classList.add(this._settings.inactiveButtonClass);
+  }
+
   _setEventListeners() {
-    this._toggleButtonState();
+    this.toggleButtonState();
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState();
+        this.toggleButtonState();
       });
     });
   }
 
   resetValidation() {
-    this._toggleButtonState();
+    this.toggleButtonState();
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });

@@ -132,10 +132,8 @@ const handleAddCardSubmit = (e) => {
   e.preventDefault();
   const newCardData = { name: cardTitleInput.value, link: cardUrlInput.value };
   renderCard(newCardData);
-  addCardForm.reset();
-  // Reset validation but also disable the submit button
-  formValidators[addCardForm.getAttribute("name")].resetValidation();
-  formValidators[addCardForm.getAttribute("name")].disableButton();
+  addCardForm.reset(); // Clear the form
+  formValidators[addCardForm.getAttribute("name")].disableButton(); // Disable submit button
   closePopup(addCardPopup);
 };
 
