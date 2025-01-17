@@ -1,4 +1,3 @@
-// Import statements
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -7,6 +6,14 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards, settings } from "../utils/constants.js";
 import "./index.css";
+
+// Cache DOM elements
+const profileEditButton = document.querySelector("#edit-profile-button");
+const addCardButton = document.querySelector(".profile__add-button");
+const profileNameInput = document.querySelector("#profile-name-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
 
 // Helper function to create a card
 const createCard = (cardData) => {
@@ -23,7 +30,11 @@ const enableValidation = (config) => {
   forms.forEach((form) => {
     const validator = new FormValidator(config, form);
     const formName = form.getAttribute("name");
-    formValidators[formName] = validator;
+    if (formName) {
+      formValidators[formName] = validator;
+    } else {
+      console.warn("Form missing 'name' attribute:", form);
+    }
     validator.enableValidation();
   });
 };
@@ -42,6 +53,7 @@ const addCardPopupInstance = new PopupWithForm(
   (inputData) => {
     const cardElement = createCard(inputData);
     section.addItem(cardElement);
+    formValidators["add-card-form"].disableButton(); // Disable button after submission
     addCardPopupInstance.close();
   }
 );
@@ -70,14 +82,14 @@ const section = new Section(
 section.renderItems();
 
 // Event listeners
-document.querySelector("#edit-profile-button").addEventListener("click", () => {
+profileEditButton.addEventListener("click", () => {
   const { name, job } = userInfo.getUserInfo();
-  document.querySelector("#profile-name-input").value = name;
-  document.querySelector("#profile-description-input").value = job;
+  profileEditPopupInstance.setInputValues({ name, job });
   profileEditPopupInstance.open();
 });
 
-document.querySelector(".profile__add-button").addEventListener("click", () => {
+addCardButton.addEventListener("click", () => {
+  formValidators["add-card-form"].resetValidation(); // Reset validation state
   addCardPopupInstance.open();
 });
 
