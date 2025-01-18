@@ -85,11 +85,12 @@ section.renderItems();
 profileEditButton.addEventListener("click", () => {
   const { name, job } = userInfo.getUserInfo();
   profileEditPopupInstance.setInputValues({ name, job });
+  formValidators["edit-profile-form"].resetValidation(); // Reset validation state for profile form
   profileEditPopupInstance.open();
 });
 
 addCardButton.addEventListener("click", () => {
-  formValidators["add-card-form"].resetValidation(); // Reset validation state
+  formValidators["add-card-form"].disableButton(); // Ensure the button is disabled initially
   addCardPopupInstance.open();
 });
 
