@@ -90,7 +90,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 addCardButton.addEventListener("click", () => {
-  formValidators["add-card-form"].disableButton(); // Ensure the button is disabled initially
+  formValidators["add-card-form"].resetValidation(); // Reset form validation state
   addCardPopupInstance.open();
 });
 
