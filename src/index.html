@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" />
     <meta name="description" content="Around the U.S" />
-    <meta name="author" content="Moses A Aina" />
+    <meta name="author" content="Moses Ademola Aina" />
     <meta
       name="keywords"
       content="Yosemite Valley, Lake Louise, Bald Mountain, Latemar, Vanoise National Park, Lago di Braies"
@@ -24,11 +24,19 @@
 
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./Images/jacques-cousteau.jpg')%>"
-            alt="Avatar"
-            class="profile__image"
-          />
+          <div class="profile__container">
+            <img
+              src="<%=require('./Images/jacques-cousteau.jpg')%>"
+              alt="Avatar"
+              class="profile__image"
+            />
+            <button
+              type="button"
+              class="change__profile__avatar-button"
+              id="change-profile-picture-button"
+            ></button>
+          </div>
+
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -55,7 +63,7 @@
       </footer>
     </div>
 
-    <!-- Popups -->
+    <!-- Edit Profile Popup -->
     <div class="popup" id="edit-profile-popup">
       <div class="popup__content">
         <button
@@ -82,13 +90,12 @@
               required
             />
             <span class="popup__error" id="profile-name-input-error"></span>
-            <!-- Error Message -->
           </label>
           <label class="popup__label">
             <input
               type="text"
               class="popup__input popup__input_type_description"
-              name="job"
+              name="about"
               id="profile-description-input"
               placeholder="Description"
               required
@@ -97,7 +104,6 @@
               class="popup__error"
               id="profile-description-input-error"
             ></span>
-            <!-- Error Message -->
           </label>
           <button type="submit" class="popup__button popup__button_disabled">
             Save
@@ -106,6 +112,7 @@
       </div>
     </div>
 
+    <!-- Add Card Popup -->
     <div class="popup" id="add-card-popup">
       <div class="popup__content">
         <button
@@ -132,7 +139,6 @@
               required
             />
             <span class="popup__error" id="card-title-input-error"></span>
-            <!-- Error Message -->
           </label>
           <label class="popup__label">
             <input
@@ -144,7 +150,6 @@
               required
             />
             <span class="popup__error" id="card-url-input-error"></span>
-            <!-- Error Message -->
           </label>
           <button type="submit" class="popup__button popup__button_disabled">
             Save
@@ -153,6 +158,7 @@
       </div>
     </div>
 
+    <!-- Picture Popup -->
     <div class="popup popup_type_picture" id="picture-popup">
       <div class="popup__content-picture">
         <button
@@ -165,6 +171,59 @@
       </div>
     </div>
 
+    <!-- Change Profile Picture Popup -->
+    <div class="popup" id="change-profile-picture-popup">
+      <div class="popup__content">
+        <button
+          type="button"
+          class="popup__close"
+          id="close-change-profile-picture-popup"
+        ></button>
+        <p class="popup__heading">Change Profile Picture</p>
+        <form
+          name="change-profile-picture-form"
+          class="popup__form"
+          id="change-profile-picture-form"
+          novalidate
+        >
+          <label class="popup__label">
+            <input
+              type="url"
+              class="popup__input popup__input_type_url"
+              name="avatar"
+              id="avatar-url-input"
+              placeholder="Image URL"
+              required
+            />
+            <span class="popup__error" id="avatar-url-input-error"></span>
+          </label>
+          <button type="submit" class="popup__button popup__button_disabled">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Confirm Delete Popup -->
+    <div class="popup" id="confirm-delete-popup">
+      <div class="popup__content popup__content-delete">
+        <button
+          type="button"
+          class="popup__close popup__close_type_delete"
+          id="close-confirm-delete-popup"
+        ></button>
+        <p class="popup__heading">Are you sure?</p>
+        <button
+          type="button"
+          class="popup__button popup__confirm"
+          id="confirm-delete-button"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+
+    <!-- Card Template -->
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />

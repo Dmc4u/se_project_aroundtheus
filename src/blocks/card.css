@@ -10,6 +10,7 @@
 .card__image {
   width: 282px;
   height: 282px;
+  object-fit: cover;
 }
 
 .card__description {
@@ -18,7 +19,7 @@
   align-items: center;
   background-color: white;
   color: black;
-  padding: 25px 20px 25px;
+  padding: 25px 20px;
 }
 
 .card__title {
@@ -42,6 +43,7 @@
   width: 21px;
   height: 18px;
   border: none;
+  background-size: contain;
 }
 
 .card__like-button_active {
@@ -51,13 +53,7 @@
 }
 
 .card__like-button:hover {
-  cursor: pointer;
   opacity: 0.5;
-}
-
-.card__like-button:disabled {
-  cursor: not-allowed;
-  opacity: 1;
 }
 
 .card__delete-button {
@@ -70,10 +66,9 @@
   cursor: pointer;
   background-image: url(../Images/delete-button.svg);
   background-size: cover;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: transparent;
 }
 
 .card__delete-button:hover {

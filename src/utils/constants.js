@@ -1,5 +1,3 @@
-// utils/constants.js
-
 export const initialCards = [
   {
     name: "Yosemite Valley",
