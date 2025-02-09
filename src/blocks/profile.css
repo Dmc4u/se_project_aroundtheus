@@ -19,6 +19,10 @@
   background-position: center;
 }
 
+.profile__image:hover {
+  opacity: 0.5;
+}
+
 /* Change profile picture */
 
 .change__profile__avatar-button {
