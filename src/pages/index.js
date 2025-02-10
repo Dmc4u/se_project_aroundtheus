@@ -57,14 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const handleDeleteCard = (card, cardId) => {
     confirmDeletePopup.setSubmitAction(() => {
-      api
-        .deleteCard(cardId)
+      return api
+        .deleteCard(cardId) // Ensure this returns a promise
         .then(() => {
           card.removeCard();
-          confirmDeletePopup.close();
+          confirmDeletePopup.close(); // Now in then block
         })
         .catch((err) => console.error(`Error deleting card: ${err}`));
     });
+
     confirmDeletePopup.open();
   };
 
@@ -74,9 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const addCardPopupInstance = new PopupWithForm(
     "#add-card-popup",
     (inputData) => {
-      return api.addCard(inputData.name, inputData.link).then((newCard) => {
-        section.addItem(createCard(newCard));
-      });
+      return api
+        .addCard(inputData.name, inputData.link)
+        .then((newCard) => {
+          section.addItem(createCard(newCard));
+          formValidators["add-card-form"].disableButton();
+          addCardPopupInstance.close();
+        })
+        .catch((error) => console.error("Error adding card:", error));
     }
   );
   addCardPopupInstance.setEventListeners();
@@ -88,7 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .updateUserInfo(inputData.name, inputData.about)
         .then((updatedUser) => {
           userInfo.setUserInfo(updatedUser);
-        });
+          profileEditPopupInstance.close();
+        })
+        .catch((err) => console.error("Error updating profile:", err));
     }
   );
   profileEditPopupInstance.setEventListeners();
@@ -96,9 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const changeProfilePicturePopupInstance = new PopupWithForm(
     "#change-profile-picture-popup",
     (inputData) => {
-      return api.updateUserAvatar(inputData.avatar).then((updatedUser) => {
-        userInfo.setUserAvatar(updatedUser.avatar);
-      });
+      return api
+        .updateUserAvatar(inputData.avatar)
+        .then((updatedUser) => {
+          userInfo.setUserAvatar(updatedUser.avatar);
+          changeProfilePicturePopupInstance.close();
+        })
+        .catch((err) => console.error("Error updating profile picture:", err));
     }
   );
   changeProfilePicturePopupInstance.setEventListeners();
@@ -110,23 +122,29 @@ document.addEventListener("DOMContentLoaded", () => {
     ".cards__list"
   );
 
-  Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
-    ([userData, cardData]) => {
+  Promise.all([api.getUserInfo(), api.getInitialCards()])
+    .then(([userData, cardData]) => {
       userInfo.setUserInfo(userData);
       userInfo.setUserAvatar(userData.avatar);
       section.renderItems(cardData.reverse());
-    }
-  );
+    })
+    .catch((err) => console.error("Error loading initial data:", err));
 
   profileEditButton.addEventListener("click", () => {
     profileEditPopupInstance.setInputValues(userInfo.getUserInfo());
+    formValidators["edit-profile-form"].resetValidation();
     profileEditPopupInstance.open();
   });
 
-  addCardButton.addEventListener("click", () => addCardPopupInstance.open());
-  changeProfilePictureButton.addEventListener("click", () =>
-    changeProfilePicturePopupInstance.open()
-  );
+  addCardButton.addEventListener("click", () => {
+    formValidators["add-card-form"].resetValidation();
+    addCardPopupInstance.open();
+  });
+
+  changeProfilePictureButton.addEventListener("click", () => {
+    formValidators["change-profile-picture-form"].resetValidation();
+    changeProfilePicturePopupInstance.open();
+  });
 
   enableValidation(settings);
 });
