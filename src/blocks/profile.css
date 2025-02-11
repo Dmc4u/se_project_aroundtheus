@@ -4,9 +4,55 @@
   margin: 40px auto 0;
 }
 
+.profile__container {
+  position: relative;
+  display: block;
+  width: 120px;
+  height: 120px;
+}
+
 .profile__image {
   width: 120px;
   height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+}
+
+.profile__image:hover {
+  opacity: 0.5;
+}
+
+/* Change profile picture */
+
+.change__profile__avatar-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  background-image: url(../Images/profile-picture-edit-icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  display: none; /* Initially hidden */
+}
+
+.profile__container:hover .change__profile__avatar-button {
+  display: block; /* Show on hover */
+}
+
+.change__profile__avatar-button:hover {
+  opacity: 0.6;
+}
+
+.change__profile__avatar-button:disabled {
+  cursor: not-allowed;
+  opacity: 1;
 }
 
 .profile__info {

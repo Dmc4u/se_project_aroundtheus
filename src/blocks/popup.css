@@ -112,7 +112,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.popup_type_picture.modal_opened {
+.popup_type_picture .popup_opened {
   display: flex;
 }
 
@@ -157,6 +157,26 @@
   left: 0;
   top: calc(100% + 10px);
   margin: 0;
+}
+
+.popup__content-delete {
+  max-width: 430px;
+  width: 100%;
+  min-height: 181px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+  transform: scale(0.9);
+  transition: transform 0.3s linear;
+}
+
+/* Change profile picture */
+
+.popup__error {
+  color: red;
+  font-size: 12px;
 }
 
 .popup__input:invalid {

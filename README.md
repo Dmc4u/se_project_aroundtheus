@@ -1,63 +1,78 @@
-# Project 3, Title: Around The U.S.
+# Around The U.S
 
-Profile Title: Jacques Cousteau
-Description: Explorer
+A responsive web application that allows users to share and explore beautiful locations across the United States. Users can create, like, and delete image-based cards, update their profile information, and change their profile pictures.
 
-## Project Key Features.
+## Features
 
-# HTML Structure:
+- **User Authentication**: Fetch and display user details from the API.
 
-1. Semantic structure with <header>, <main>, <section>, and <footer>.
-2. Templates using <template> for dynamic card generation.
-3. Flexbox layout for flexible and responsive design.
-4. Grid layout for creating structured, two-dimensional layouts.
-5. Responsive Design using @media queries to optimize for different screen sizes.
+- **Profile Management**: Users can edit their name, bio, and profile picture.
 
-# CSS Design:
+- **Card Management**:
 
-1. Popup animations with smooth transitions for opening/closing.
-2. Responsive design with media queries for smaller screens.
-3. Custom error and validation styles for forms.
+  - Add new location cards with images and descriptions.
 
-# JavaScript Logic:
+  - Like and unlike cards.
 
-1. Modular approach with Card and FormValidator classes.
-2. Real-time validation of form inputs.
-3. Reusable utility functions for popups and event listeners.
-4. Rendering of initial cards and adding new ones dynamically.
+  - Delete personal cards with confirmation.
 
-# Accessibility:
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop.
 
-1. Popup close functionality supports the Escape key and overlay clicks.
-2. Alt attributes for images ensure accessibility.
+- **Form Validation**: Ensures valid input before submitting data.
 
-#### Future Improvements.
+- **API Integration**: All interactions persist using a RESTful API.
 
-# Accessibility Enhancements:
+### Tech Stack
 
-1. Add ARIA roles and attributes (e.g., role="dialog", aria-labelledby, aria-describedby) to modals for better screen reader support.
-2. Include focus trapping within modals to prevent tab navigation outside the modal.
+- HTML5, CSS3, JavaScript (ES6)
 
-# User Feedback:
+- Webpack for bundling and optimization
 
-1. Add visual feedback for successful operations like card addition or profile updates.
-2. Display error messages more descriptively.
+- Babel for ES6+ transpilation
 
-# Code Organization:
+- OOP (Object-Oriented Programming) for modular code structure
 
-1. Separate CSS into modular files (e.g., popup.css, card.css).
-2. Use ES6+ modules for better maintainability (e.g., utility functions in a separate file).
+- Fetch API for API communication
 
-# Performance Optimization:
+- PostCSS & Autoprefixer for CSS processing
 
-1. Lazy-load images for cards to optimize page load speed.
-2. Use a build tool like Webpack to bundle and minify assets.
+## Project Structure
 
-# Scalability:
+## API Endpoints
 
-1. Implement a backend API for storing cards and user profile information.
-2. Add authentication for user-specific content.
+The app communicates with the following API:
 
-##### Visit https://dmc4u.github.io/se_project_aroundtheus/
+- Base URL: https://around-api.en.tripleten-services.com/v1
+
+| Endpoint            | Method | Description            |
+| ------------------- | ------ | ---------------------- |
+| `/users/me`         | GET    | Fetch user info        |
+| `/users/me`         | PATCH  | Update user info       |
+| `//users/me/avatar` | PATCH  | Update profile picture |
+| `/cards`            | GET    | Get all cards          |
+| `/cards`            | POST   | Add a new card         |
+| `/cards/:id`        | DELETE | Delete a card          |
+| `/cards/:id/likes`  | PUT    | Like a card            |
+| `/cards/:id/likes`  | DELETE | Unlike a card          |
+
+# **UI Design**
+
+The interface follows a clean and modern design inspired by BEM methodology for CSS structure.
+
+# Future Enhancements
+
+- Add user authentication for better security.
+
+- Implement real-time updates for likes and comments.
+
+- Allow users to edit existing cards instead of just deleting them.
+
+# Author
+
+Developed by Moses Ademola Aina, based on a project by **Elise Bouer**.
+
+`*Enjoy sharing beautiful locations around the U.S.!*`
+
+`**TripleTen**!`
 
 Stay tuned!
