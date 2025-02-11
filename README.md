@@ -73,7 +73,7 @@ Developed by Moses Ademola Aina, based on a project by **Elise Bouer**.
 
 ### `Enjoy sharing beautiful locations around the U.S.!`
 
-| `[Visit Around The U.S](https://dmc4u.github.io/se_project_aroundtheus/)` |
+| [Visit Around The U.S](https://dmc4u.github.io/se_project_aroundtheus/) |
 
 | [Link](https://www.loom.com/share/8c6adaa29c06488e9544bf6fe41ec490?sid=07ac017e-cf6e-457e-aea9-2d33f6c64e59) |
 
